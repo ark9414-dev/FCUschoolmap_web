@@ -34,7 +34,6 @@ function withAbsolutePhotoUrl(photo, baseUrl) {
 
 export async function loadCampusDataset({ fallbackCampuses }) {
   const baseUrl = apiBaseUrl()
-  if (!baseUrl) return null
 
   try {
     await syncOfficialEvents(baseUrl)
