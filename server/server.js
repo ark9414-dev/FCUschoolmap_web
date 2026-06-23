@@ -304,6 +304,32 @@ app.get('/api/sources', (req, res) => {
   res.json(rows)
 })
 
-app.listen(port, () => {
-  console.log(`School map API running at http://127.0.0.1:${port}`)
+/*
+ * 提供 Vite 建置後的前端檔案。
+ * npm run build 會產生 dist 資料夾。
+ */
+const distPath = resolve(__dirname, '..', 'dist')
+
+if (existsSync(distPath)) {
+  // 提供 dist/assets、圖片、CSS 和 JavaScript
+  app.use(express.static(distPath))
+
+  /*
+   * 非 API 路徑全部回傳 Vue 首頁。
+   * Express 5 建議使用正規表示式，不使用 app.get('*')。
+   */
+  app.get(/^(?!\/api(?:\/|$)).*/, (req, res) => {
+    res.sendFile(resolve(distPath, 'index.html'))
+  })
+} else {
+  console.error(`Frontend build directory not found: ${distPath}`)
+  console.error('Run npm run build before starting the server.')
+}
+
+/*
+ * Azure 會提供 PORT 環境變數。
+ * 0.0.0.0 讓 Azure 容器外部可以連入。
+ */
+app.listen(port, '0.0.0.0', () => {
+  console.log(`School map server running on port ${port}`)
 })

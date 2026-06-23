@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
   "scripts": {
     "dev": "vite --host 127.0.0.1 --open /index.dev.html",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1",
     "seed": "node --no-warnings server/seed.js",
     "server": "node --no-warnings server/server.js",
+    "start": "node --no-warnings server/server.js",
     "dev:server": "npm run seed && npm run server"
   },
   "dependencies": {

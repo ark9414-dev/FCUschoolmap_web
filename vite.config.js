@@ -4,21 +4,25 @@ import { existsSync, renameSync } from 'node:fs'
 import { resolve } from 'node:path'
 
 export default defineConfig({
-  base: './',
+  base: '/',
+
   plugins: [
     vue(),
+
     {
-      name: 'rename-dev-entry-for-pages',
+      name: 'rename-dev-entry-for-azure',
+
       closeBundle() {
         const devEntry = resolve('dist/index.dev.html')
-        const pagesEntry = resolve('dist/index.html')
+        const productionEntry = resolve('dist/index.html')
 
         if (existsSync(devEntry)) {
-          renameSync(devEntry, pagesEntry)
+          renameSync(devEntry, productionEntry)
         }
       }
     }
   ],
+
   build: {
     rollupOptions: {
       input: resolve('index.dev.html')
