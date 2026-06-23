@@ -5,7 +5,7 @@
 ## 專案架構
 
 ```txt
-schoolmap_web/
+FCUschoolmap_web/
   server/                 Express API 與 SQLite seed
     data/
       schoolmap.sqlite    SQLite 資料庫
@@ -74,7 +74,7 @@ npm run server
 npm run dev
 ```
 
-前端網址預設為 `http://127.0.0.1:5173/index.dev.html`，後端 API 預設為 `http://127.0.0.1:3001`。
+前端網址預設為 `http://127.0.0.1:5173/`，後端 API 預設為 `http://127.0.0.1:3001`。
 
 ## 建置
 
