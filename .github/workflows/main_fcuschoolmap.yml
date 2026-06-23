@@ -29,20 +29,20 @@ jobs:
           npm ci
           npm run build --if-present
           npm run test --if-present
+          zip -r deploy.zip . \
+            -x "node_modules/*" \
+            -x ".git/*" \
+            -x ".github/*" \
+            -x "work/*" \
+            -x "outputs/*" \
+            -x "*.log" \
+            -x "*.sqlite-journal"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: |
-            .
-            !node_modules
-            !.git
-            !.github
-            !work
-            !outputs
-            !*.log
-            !*.sqlite-journal
+          path: deploy.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -70,5 +70,5 @@ jobs:
         with:
           app-name: 'FCUschoolmap'
           slot-name: 'Production'
-          package: .
+          package: deploy.zip
           
