@@ -15,6 +15,14 @@ async function fetchJson(path, baseUrl) {
   return response.json()
 }
 
+async function syncOfficialEvents(baseUrl) {
+  try {
+    await fetchJson('/api/official-events?refresh=1', baseUrl)
+  } catch (error) {
+    console.warn('Official events unavailable, using cached or default activities instead.', error)
+  }
+}
+
 function withAbsolutePhotoUrl(photo, baseUrl) {
   const url = photo.url.startsWith('http') ? photo.url : new URL(photo.url, `${baseUrl}/`).href
 
@@ -29,7 +37,7 @@ export async function loadCampusDataset({ fallbackCampuses }) {
   if (!baseUrl) return null
 
   try {
-    await fetchJson('/api/official-events?refresh=1', baseUrl)
+    await syncOfficialEvents(baseUrl)
 
     const [categories, campuses, places, photos, sources] = await Promise.all([
       fetchJson('/api/categories', baseUrl),
