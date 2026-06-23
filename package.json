@@ -13,7 +13,7 @@
     "preview": "vite preview --host 127.0.0.1",
     "seed": "node --no-warnings server/seed.js",
     "server": "node --no-warnings server/server.js",
-    "start": "node --no-warnings server/server.js",
+    "start": "npm run seed && npm run server",
     "dev:server": "npm run seed && npm run server"
   },
   "dependencies": {
