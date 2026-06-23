@@ -5,7 +5,7 @@
 ## 專案架構
 
 ```txt
-FCUschoolmap_web/
+schoolmap_web/
   server/                 Express API 與 SQLite seed
     data/
       schoolmap.sqlite    SQLite 資料庫

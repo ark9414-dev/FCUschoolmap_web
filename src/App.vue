@@ -159,6 +159,7 @@ function focusMapOnPlace(place) {
 function createMarkerIcon(place) {
   const isSelected = selectedPlace.value?.id === place.id
   const isMuted = !filteredPlaces.value.some((item) => item.id === place.id)
+  const markerWidth = Math.max(50, place.code.length * 16 + 20)
 
   return L.divIcon({
     className: [
@@ -171,8 +172,8 @@ function createMarkerIcon(place) {
       .filter(Boolean)
       .join(' '),
     html: `<span>${place.code}</span>`,
-    iconSize: [50, 26],
-    iconAnchor: [25, 18],
+    iconSize: [markerWidth, 26],
+    iconAnchor: [markerWidth / 2, 18],
     popupAnchor: [0, -20]
   })
 }

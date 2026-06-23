@@ -38,7 +38,7 @@ export const places = [
   {
     id: 'creative',
     campus: 'main',
-    name: '文華創意中心',
+    name: '文創',
     code: '文創',
     category: 'life',
     x: 7,
@@ -101,17 +101,17 @@ export const places = [
     tip: '官網圖中位於上方中央，靠近綜合運動場。'
   },
   {
-    id: 'quiet',
+    id: 'common-good',
     campus: 'main',
-    name: '靜思館',
-    code: '靜思',
+    name: '共善樓',
+    code: '共善',
     category: 'life',
-    x: 58,
-    y: 84,
-    intro: '官網圖標示於體育館東側的校園空間。',
-    usefulFor: ['活動集合', '校園導覽', '課間辨識'],
-    facilities: ['校園空間'],
-    tip: '可作為辨識北側建物群的輔助地標。'
+    x: 80,
+    y: 34,
+    intro: '校園內兼具學習、交流與公共活動機能的特色建築。',
+    usefulFor: ['校園導覽', '活動集合', '跨域交流'],
+    facilities: ['公共空間', '交流場域', '活動空間'],
+    tip: '可作為校園北側建物群的辨識點。'
   },
   {
     id: 'zhongqin',
@@ -155,7 +155,7 @@ export const places = [
   {
     id: 'architecture',
     campus: 'main',
-    name: '建築館',
+    name: '建築',
     code: '建築',
     category: 'learning',
     x: 16,
@@ -194,8 +194,8 @@ export const places = [
   {
     id: 'humanities',
     campus: 'main',
-    name: '人社館',
-    code: '人社',
+    name: '人文社會',
+    code: '人文',
     category: 'learning',
     x: 54,
     y: 45,
@@ -207,15 +207,15 @@ export const places = [
   {
     id: 'telecom',
     campus: 'main',
-    name: '電通館',
+    name: '資訊電通',
     code: '電通',
     category: 'learning',
     x: 62,
     y: 45,
-    intro: '電通相關課程與教學空間。',
+    intro: '資訊、電通相關課程與教學空間。',
     usefulFor: ['電通課程', '專業教室', '系所活動'],
     facilities: ['教室', '系所空間'],
-    tip: '官網圖中與人社館並列，靠近資訊電機館。'
+    tip: '官網圖中與人文社會並列，靠近資訊電機館。'
   },
   {
     id: 'ciee',
@@ -228,7 +228,7 @@ export const places = [
     intro: '資訊、電機、通訊與程式實作相關課程常用區域。',
     usefulFor: ['程式設計課', '硬體實驗', '專題開發'],
     facilities: ['電腦教室', '實驗室', '系所辦公室'],
-    tip: '官網圖中位於人社館與電通館下方，靠近圖書館。'
+    tip: '官網圖中位於人文社會與資訊電通下方，靠近圖書館。'
   },
   {
     id: 'library',
@@ -480,6 +480,11 @@ export const categoryActivityTemplates = {
 }
 
 export const photos = [
+  { placeId: 'common-good', imageUrl: '/photos/common-good.jpg', caption: '共善樓建築實景', credit: '本專案建築照片資料庫' },
+  { placeId: 'creative', imageUrl: '/photos/creative.jpg', caption: '文創空間建築實景', credit: '本專案建築照片資料庫' },
+  { placeId: 'architecture', imageUrl: '/photos/architecture.jpg', caption: '建築相關空間實景', credit: '本專案建築照片資料庫' },
+  { placeId: 'humanities', imageUrl: '/photos/humanities.jpg', caption: '人文社會建築實景', credit: '本專案建築照片資料庫' },
+  { placeId: 'telecom', imageUrl: '/photos/telecom.jpg', caption: '資訊電通建築實景', credit: '本專案建築照片資料庫' },
   { placeId: 'renyan', imageUrl: '/photos/renyan.webp', caption: '人言大樓正面建築實景', credit: '本專案建築照片資料庫' },
   { placeId: 'business', imageUrl: '/photos/business.jpg', caption: '商學大樓建築實景', credit: '本專案建築照片資料庫' },
   { placeId: 'civil', imageUrl: '/photos/civil.webp', caption: '土木水利館建築實景', credit: '本專案建築照片資料庫' },
