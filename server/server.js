@@ -10,9 +10,8 @@ const app = express()
 const port = Number(process.env.PORT ?? 3001)
 
 if (!existsSync(databasePath)) {
-  console.error(`SQLite database not found: ${databasePath}`)
-  console.error('Run npm run seed before starting the server.')
-  process.exit(1)
+  console.log(`SQLite database not found, seeding a new database at ${databasePath}`)
+  await import('./seed.js')
 }
 
 const db = openDatabase()
